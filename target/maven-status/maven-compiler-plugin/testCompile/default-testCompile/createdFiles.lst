@@ -1,0 +1,11 @@
+stepDefinitions\ClickLogo.class
+pages\SecurePay.class
+stepDefinitions\NavigateToSecurePay.class
+stepDefinitions\FillContactForm.class
+stepDefinitions\NavigateToContactUs.class
+stepDefinitions\GoogleLaunch.class
+TestRunner\TestRunner.class
+pages\Google.class
+stepDefinitions\NavigateToSecurePayOnlinePayments.class
+Utilities\initDriver.class
+stepDefinitions\SearchSecurePay.class
