@@ -85,30 +85,30 @@ public class ContactUs {
 	
 	public String GetFirstNameText()
 	{
-		return txtFirstName.getAttribute("placeholder");
+		return txtFirstName.getAttribute("value");
 	}
 	public String GetLastNameText()
 	{
-		return txtLastName.getAttribute("placeholder");
+		return txtLastName.getAttribute("value");
 	}
 	public String GetEmailText()
 	{
-		return txtEmail.getAttribute("placeholder");
+		return txtEmail.getAttribute("value");
 	}
 	public String GetPhoneText()
 	{
-		return txtPhone.getAttribute("placeholder");
+		return txtPhone.getAttribute("value");
 	}
 	public String GetUrlText()
 	{
-		return txtWebsiteURL.getAttribute("placeholder");
+		return txtWebsiteURL.getAttribute("value");
 	}
 	public String GetCompanyText()
 	{
-		return txtCompany.getAttribute("placeholder");
+		return txtCompany.getAttribute("value");
 	}
 	public String GetMessageText()
 	{
-		return cboMessage.getAttribute("placeholder");
+		return cboMessage.getAttribute("value");
 	}
 }

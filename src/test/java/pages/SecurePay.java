@@ -17,6 +17,9 @@ public class SecurePay {
 
 	}
 		
+	@FindBy(xpath = "//h2[contains(text(),'All-in-one payments. Create your payment experience')]")
+	public WebElement HeadingSecurePay;
+	
 	@FindBy(linkText = "Solutions")
 	private WebElement lnkSolutions;
 	

@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertEquals;
 import org.apache.commons.lang.RandomStringUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -43,17 +43,17 @@ public class FillContactForm {
 		contactus.FillContactUsForm(FirstName, LastName, Email, Phone, Url, Company, Message);
 	}
 		
-	@Then("^I should be able to see data entered$")
-	public void I_should_be_able_to_see_data_entered()
+	@Then("^I should be able to see the data I entered$")
+	public void I_should_be_able_to_see_the_data_I_entered()
 	{
 		contactus = new ContactUs(Browser.driver);
-		assertNotEquals(FirstName, contactus.GetFirstNameText());
-		assertNotEquals(LastName, contactus.GetLastNameText());
-		assertNotEquals(Email, contactus.GetEmailText());
-		assertNotEquals(Phone, contactus.GetPhoneText());
-		assertNotEquals(Url, contactus.GetUrlText());
-		assertNotEquals(Company, contactus.GetCompanyText());
-		assertNotEquals(Message, contactus.GetMessageText());
+		assertEquals(FirstName, contactus.GetFirstNameText());
+		assertEquals(LastName, contactus.GetLastNameText());
+		assertEquals(Email, contactus.GetEmailText());
+		assertEquals(Phone, contactus.GetPhoneText());
+		assertEquals("http://" + Url, contactus.GetUrlText());
+		assertEquals(Company, contactus.GetCompanyText());
+		assertEquals(Message, contactus.GetMessageText());
 	}
 
 }

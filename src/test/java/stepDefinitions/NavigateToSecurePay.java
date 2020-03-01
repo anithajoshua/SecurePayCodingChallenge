@@ -6,6 +6,9 @@ import io.cucumber.java.en.When;
 import pages.*;
 import static org.junit.Assert.assertEquals;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 public class NavigateToSecurePay {	
 	Google googlePage = new Google(Browser.driver);
     SecurePay securepay;
@@ -28,6 +31,8 @@ public class NavigateToSecurePay {
 	public void I_should_be_redirected_to_the_SecurePay_website()
 	{
 		securepay = new SecurePay(Browser.driver);
+		WebDriverWait wait = new WebDriverWait(Browser.driver,1000);
+		wait.until(ExpectedConditions.visibilityOf(securepay.HeadingSecurePay));
 		assertEquals(securepay.GetUrl(), "https://www.securepay.com.au/");
 	}
 }
