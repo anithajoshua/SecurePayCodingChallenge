@@ -1,29 +1,20 @@
 package stepDefinitions;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.*;
 import static org.junit.Assert.assertEquals;
 
-public class NavigateToSecurePay {
-	
-	WebDriver driver = new ChromeDriver();	
-	Google googlePage = new Google(driver);
+public class NavigateToSecurePay {	
+	Google googlePage = new Google(Browser.driver);
     SecurePay securepay;
 	
 	@Given("^I am on the Google Search Page$")
 	public void I_am_on_the_Google_Search_Page()
-	{
-		
-		String Url = "https://www.google.com.au";
-	    String driverPath = ".\\drivers\\chromedriver.exe";
-	    System.setProperty("webdriver.chrome.driver", driverPath);	
-		driver.get(Url);
-		driver.manage().window().maximize();
+	{		
+		String SiteUrl = "https://www.google.com.au";
+		Browser.driver.get(SiteUrl);
 		googlePage.GoogleSearch("SecurePay");
 	}
 	
@@ -36,9 +27,7 @@ public class NavigateToSecurePay {
 	@Then("^I should be redirected to the SecurePay website$")
 	public void I_should_be_redirected_to_the_SecurePay_website()
 	{
-		securepay = new SecurePay(driver);
+		securepay = new SecurePay(Browser.driver);
 		assertEquals(securepay.GetUrl(), "https://www.securepay.com.au/");
-		driver.close();
-		driver.quit();
 	}
 }

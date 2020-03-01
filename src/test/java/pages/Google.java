@@ -4,13 +4,14 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import stepDefinitions.Browser;
+
 public class Google {
 	
-   private WebDriver driver;
 
 	public Google(WebDriver rdriver)
 	{
-	driver=rdriver;
+	Browser.driver=rdriver;
 	PageFactory.initElements(rdriver,this);
 
 	}
@@ -29,7 +30,7 @@ public class Google {
 	
 	public String GetTitle()
 	{
-		return (driver.getTitle());
+		return (Browser.driver.getTitle());
 	}
 		
 	public boolean SearchResult()

@@ -9,6 +9,9 @@ formatter.scenario({
   "description": "",
   "keyword": "Scenario"
 });
+formatter.before({
+  "status": "passed"
+});
 formatter.step({
   "name": "I am at the Contact Us page",
   "keyword": "Given "
@@ -39,6 +42,9 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.after({
+  "status": "passed"
+});
 formatter.uri("file:Features/FillContactForm.feature");
 formatter.feature({
   "name": "Contact us form",
@@ -49,6 +55,9 @@ formatter.scenario({
   "name": "Fill details on the Contact us form",
   "description": "",
   "keyword": "Scenario"
+});
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "I am at the Contact us page of the SecurePay Website",
@@ -71,13 +80,16 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "I should be able see the details entered",
+  "name": "I should be able to see data entered",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "stepDefinitions.FillContactForm.I_should_be_able_see_the_details_entered()"
+  "location": "stepDefinitions.FillContactForm.I_should_be_able_to_see_data_entered()"
 });
 formatter.result({
+  "status": "passed"
+});
+formatter.after({
   "status": "passed"
 });
 formatter.uri("file:Features/GoogleLaunch.feature");
@@ -90,6 +102,9 @@ formatter.scenario({
   "name": "Launch Google Page",
   "description": "",
   "keyword": "Scenario"
+});
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "I enter the Google URL on chrome browser",
@@ -111,6 +126,9 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.after({
+  "status": "passed"
+});
 formatter.uri("file:Features/NavigateToContactUs.feature");
 formatter.feature({
   "name": "Contact us page navigation",
@@ -121,6 +139,9 @@ formatter.scenario({
   "name": "Navigate to the Contact us page",
   "description": "",
   "keyword": "Scenario"
+});
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "I am on the SecurePay Website",
@@ -152,6 +173,9 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.after({
+  "status": "passed"
+});
 formatter.uri("file:Features/NavigateToSecurePay.feature");
 formatter.feature({
   "name": "SecurePay page navigation",
@@ -162,6 +186,9 @@ formatter.scenario({
   "name": "Navigate to SecurePay page",
   "description": "",
   "keyword": "Scenario"
+});
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "I am on the Google Search Page",
@@ -193,6 +220,9 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.after({
+  "status": "passed"
+});
 formatter.uri("file:Features/NavigateToSecurePayOnlinePayments.feature");
 formatter.feature({
   "name": "Secure Pay Online Payments page navigation",
@@ -203,6 +233,9 @@ formatter.scenario({
   "name": "Navigate to Secure Pay Online Payments page",
   "description": "",
   "keyword": "Scenario"
+});
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "I am at the SecurePay Website",
@@ -234,6 +267,9 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.after({
+  "status": "passed"
+});
 formatter.uri("file:Features/SearchSecurePay.feature");
 formatter.feature({
   "name": "I want to search for SecurePay in Google",
@@ -244,6 +280,9 @@ formatter.scenario({
   "name": "Google Search for SecurePay",
   "description": "",
   "keyword": "Scenario"
+});
+formatter.before({
+  "status": "passed"
 });
 formatter.step({
   "name": "I enter the Google URL",
@@ -273,6 +312,9 @@ formatter.match({
   "location": "stepDefinitions.SearchSecurePay.The_search_should_list_the_Securepay_links()"
 });
 formatter.result({
+  "status": "passed"
+});
+formatter.after({
   "status": "passed"
 });
 });

@@ -1,29 +1,25 @@
 package stepDefinitions;
 
 import static org.junit.Assert.assertEquals;
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.ContactUs;
 import pages.SecurePay;
 
 public class ClickLogo {
-	WebDriver driver;	
     SecurePay securepay;
+    ContactUs contactus;
     
 	@Given("^I am at the Contact Us page$")
 	public void I_am_at_the_Contact_Us_page()
 	{
-		String Url = "https://www.securepay.com.au";
-	    String driverPath = ".\\drivers\\chromedriver.exe";
-	    System.setProperty("webdriver.chrome.driver", driverPath);
-	    driver = new ChromeDriver();	
-	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	    driver.manage().window().maximize();
-	    driver.get(Url);
-	    securepay = new SecurePay(driver);
+		String SiteUrl = "https://www.securepay.com.au";
+	    Browser.driver.get(SiteUrl);
+	    securepay = new SecurePay(Browser.driver);
 		securepay.NavigateToSupport();
 		securepay.NavigateToContactus();	
 	}
@@ -31,18 +27,18 @@ public class ClickLogo {
 	@When("^I click on the logo$")
 	public void I_click_on_the_logo() throws InterruptedException
 	{
-		securepay = new SecurePay(driver);
-		Thread.sleep(3000);
-		securepay.LogoClick();
-		Thread.sleep(3000);
+		contactus = new ContactUs(Browser.driver);
+		WebDriverWait wait = new WebDriverWait(Browser.driver,1000);
+		wait.until(ExpectedConditions.elementToBeClickable(contactus.Logo));
+		contactus.LogoClick();
 	}
 			
 	@Then("^I am taken to SecurePay page$")
 	public void I_am_taken_to_SecurePay_page()
 	{
-		securepay = new SecurePay(driver);
+		securepay = new SecurePay(Browser.driver);
+		WebDriverWait wait = new WebDriverWait(Browser.driver,1000);
+		wait.until(ExpectedConditions.elementToBeClickable(securepay.lnkWatchDemo));
 		assertEquals("https://www.securepay.com.au/", securepay.GetUrl());
-		driver.close();
-		driver.quit();
 	}
 }

@@ -5,21 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+
+import stepDefinitions.Browser;
 
 public class SecurePay {
-	
-	WebDriver driver;
-	
+		
 	public SecurePay(WebDriver rdriver)
 	{
-	driver=rdriver;
+	Browser.driver=rdriver;
 	PageFactory.initElements(rdriver,this);
 
 	}
-	@FindBy(id = "logo")
-	private WebElement Logo;
-	
+		
 	@FindBy(linkText = "Solutions")
 	private WebElement lnkSolutions;
 	
@@ -47,41 +44,8 @@ public class SecurePay {
 	@FindBy(linkText = "SecurePay Online Payments")
 	private WebElement lnkSecurePayOnlinePayments;
 	
-	/****** WebElements on Contact us form ********/
-	
-	@FindBy(name = "first-name")
-	private WebElement txtFirstName;
-	
-	@FindBy(name = "last-name")
-	private WebElement txtLastName;
-	
-	@FindBy(name = "email-address")
-	private WebElement txtEmail;
-	
-	@FindBy(name = "phone-number")
-	private WebElement txtPhone;
-
-	@FindBy(name = "website-url")
-	private WebElement txtWebsiteURL;
-	
-	@FindBy(name = "business-name")
-	private WebElement txtCompany;
-	
-	@FindBy(name = "reason-for-enquiry")
-	private WebElement cboReasonforenquiry;
-	
-	@FindBy(name = "message")
-	private WebElement cboMessage;
-	
-	public String GetUrl()
-	{
-		return (driver.getCurrentUrl());
-	}
-	
-	public void LogoClick()
-	{
-		Logo.click();
-	}
+	@FindBy(className = "video-popup-trigger")
+	public WebElement lnkWatchDemo;
 	
 	public void NavigateToSolutions()
 	{
@@ -120,43 +84,21 @@ public class SecurePay {
 	
 	public void NavigateToContactus()
 	{
-		Actions action = new Actions(driver);
+		Actions action = new Actions(Browser.driver);
 		action.moveToElement(lnkSupport).perform();
 		lnkContactus.click();
 	}
 
 	public void NavigateToSecurePayOnlinePayments()
 	{
-		Actions action = new Actions(driver);
+		Actions action = new Actions(Browser.driver);
 		action.moveToElement(lnkSolutions).perform();
 		lnkSecurePayOnlinePayments.click();
 	}
 	
-	public String GenerateRandomString(int n)
+	public String GetUrl()
 	{
-	String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
-
-	StringBuilder randomstring = new StringBuilder(n);
-	for ( int i = 0; i < n; i++) 
-	{
-	int index = (int)(AlphaNumericString.length() * Math.random());
-	randomstring .append(AlphaNumericString.charAt(index));
-	}
-	return randomstring.toString();
-	}
-	
-	public void FillContactUsForm(String FirstName, String LastName, String Email, String Phone, String Url, String Company, String Message)
-	{
-		txtFirstName.sendKeys(FirstName);
-		txtLastName.sendKeys(LastName);
-		txtEmail.sendKeys(Email);
-		txtPhone.sendKeys(Phone);
-		txtWebsiteURL.sendKeys(Url);
-		txtCompany.sendKeys(Company);
-		cboReasonforenquiry.click();
-		Select select = new Select(cboReasonforenquiry);
-		select.selectByVisibleText("Support");
-		cboMessage.sendKeys(Message);
+		return (Browser.driver.getCurrentUrl());
 	}
 }
 	
